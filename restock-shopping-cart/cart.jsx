@@ -96,8 +96,11 @@ const Products = (props) => {
     setCart(newCart);
   };
 
-  const photos = items.map((item, index) => `https://picsum.photos/id/${index + 1000}/${200}/${300}`);
-
+  const photos = items.map(() => {
+  const randomId = Math.floor(Math.random() * 1000); // Generate a random ID between 0 and 999
+  return `https://picsum.photos/id/${randomId}/${200}/${300}`;
+});
+  
   let list = items.map((item, index) => (
     <li key={index}>
       <Image src={photos[index]} width={100} height={100} rounded></Image>
